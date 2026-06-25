@@ -12,6 +12,7 @@ Copyright Cadence Design Systems (c)2019
   
 // add print and type policies here
 typedef enum {ANY, SINGLE, MULTICAST, BROADCAST} packet_type_t;
+typedef enum {HEX, DEC, BIN}
 // packet class
 class packet;
 
@@ -27,6 +28,10 @@ class packet;
     this.name = name;
     this.source = 4'b0001 << port;
     this.ptype = ANY;
+  endfunction
+
+  function string gettype() 
+    return this.ptype.name();
   endfunction
  // add print with policy
  
